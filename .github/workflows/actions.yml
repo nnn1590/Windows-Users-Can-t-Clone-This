@@ -1,0 +1,15 @@
+name: GitHub Actions
+on: [push]
+jobs:
+  Ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ls -alF "${{ github.workspace }}"
+      - run: echo "job.status=${{ job.status }}"
+  Windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: dir "${{ github.workspace }}"
+      - run: echo job.status=${{ job.status }}
